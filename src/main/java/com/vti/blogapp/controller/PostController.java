@@ -1,9 +1,7 @@
 package com.vti.blogapp.controller;
 
 import com.vti.blogapp.dto.PostDto;
-import com.vti.blogapp.entity.Post;
 import com.vti.blogapp.form.PostCreateForm;
-import com.vti.blogapp.mapper.PostMapper;
 import com.vti.blogapp.sevice.PostService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
