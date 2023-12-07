@@ -31,11 +31,11 @@ public class Comment {
     @Column(name = "body", length = 100, nullable = false)
     private String body;
 
-    @Column(name = "create_at", nullable = false, updatable = false)
+    @Column(name = "created_at", nullable = false, updatable = false)
     @CreationTimestamp
     private LocalDateTime createAt;
 
-    @Column(name = "updateAt", nullable = false)
+    @Column(name = "updated_at", nullable = false)
     @UpdateTimestamp
     private LocalDateTime updateAt;
 

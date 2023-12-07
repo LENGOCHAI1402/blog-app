@@ -30,11 +30,11 @@ public class Post {
     @Column(name = "content", length = 150, nullable = false)
     private String content;
 
-    @Column(name = "create_at", nullable = false, updatable = false)
+    @Column(name = "created_at", nullable = false, updatable = false)
     @CreationTimestamp
     private LocalDateTime createAt;
 
-    @Column(name = "updateAt", nullable = false)
+    @Column(name = "updated_at", nullable = false)
     @UpdateTimestamp
     private LocalDateTime updateAt;
 
