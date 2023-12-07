@@ -8,8 +8,8 @@ public class PostMapper {
     public static Post map(PostCreateForm form) {
         var post = new Post();
         post.setTitle(form.getTitle());
-        post.setTitle(form.getDescription());
-        post.setTitle(form.getContent());
+        post.setDescription(form.getDescription());
+        post.setContent(form.getContent());
         return post;
     }
 
