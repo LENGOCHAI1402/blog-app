@@ -1,15 +1,14 @@
 package com.vti.blogapp.controller;
 
 import com.vti.blogapp.dto.PostDto;
+import com.vti.blogapp.entity.Post;
 import com.vti.blogapp.form.PostCreateForm;
+import com.vti.blogapp.mapper.PostMapper;
 import com.vti.blogapp.sevice.PostService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -20,6 +19,11 @@ public class PostController {
     @GetMapping("/api/v1/posts")
     public Page<PostDto> findAll(Pageable pageable) {
         return postService.findAll(pageable);
+    }
+
+    @GetMapping("/api/v1/posts/{id}")
+    public PostDto findById(@PathVariable("id") Long id) {
+        return postService.findById(id);
     }
 
     @PostMapping("/api/v1/posts")
