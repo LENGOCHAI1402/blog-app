@@ -2,6 +2,7 @@ package com.vti.blogapp.controller;
 
 import com.vti.blogapp.dto.PostDto;
 import com.vti.blogapp.form.PostCreateForm;
+import com.vti.blogapp.form.PostUpdateForm;
 import com.vti.blogapp.sevice.PostService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -27,5 +28,10 @@ public class PostController {
     @PostMapping("/api/v1/posts")
     public PostDto create(@RequestBody PostCreateForm form) {
         return postService.create(form);
+    }
+
+    @PutMapping("/api/v1/posts/{id}")
+    public PostDto update(@RequestBody PostUpdateForm form,@PathVariable("id") Long id) {
+         return postService.update(form, id);
     }
 }
