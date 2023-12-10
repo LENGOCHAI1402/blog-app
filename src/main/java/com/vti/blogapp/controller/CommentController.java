@@ -3,6 +3,7 @@ package com.vti.blogapp.controller;
 import com.vti.blogapp.dto.CommentDto;
 import com.vti.blogapp.entity.Comment;
 import com.vti.blogapp.form.CommentCreateForm;
+import com.vti.blogapp.form.CommentUpdateForm;
 import com.vti.blogapp.sevice.CommentService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -19,11 +20,26 @@ public class CommentController {
         return commentService.findAll(pageable);
     }
 
+    @GetMapping("/api/v1/posts/{postId}/comments")
+    Page<CommentDto> findAllPostId(@PathVariable("postId") Long postId, Pageable pageable) {
+        return commentService.findByPostId(postId, pageable);
+    }
+
     @PostMapping("/api/v1/posts/{postId}/comments")
     public CommentDto create(
             @RequestBody CommentCreateForm form,
             @PathVariable("postId") Long postId
     ) {
         return commentService.create(form, postId);
+    }
+
+    @PutMapping("/api/v1/comments/{id}")
+    public CommentDto update(@RequestBody CommentUpdateForm form, @PathVariable("id") Long id) {
+        return commentService.update(form, id);
+    }
+
+    @DeleteMapping("/api/v1/comments/{id}")
+    public void deleteCmtById(@PathVariable("id") Long id) {
+        commentService.deleteCmtById(id);
     }
 }

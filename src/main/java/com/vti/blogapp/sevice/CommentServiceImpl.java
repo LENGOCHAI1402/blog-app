@@ -2,6 +2,7 @@ package com.vti.blogapp.sevice;
 
 import com.vti.blogapp.dto.CommentDto;
 import com.vti.blogapp.form.CommentCreateForm;
+import com.vti.blogapp.form.CommentUpdateForm;
 import com.vti.blogapp.mapper.CommentMapper;
 import com.vti.blogapp.repository.CommentRepository;
 import com.vti.blogapp.repository.PostRepository;
@@ -23,11 +24,29 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
+    public Page<CommentDto> findByPostId(Long posdId, Pageable pageable) {
+        return commentRepository.findByPostId(posdId, pageable).map(CommentMapper::map);
+    }
+
+    @Override
     public CommentDto create(CommentCreateForm form, Long postId) {
         var comment = CommentMapper.map(form);
         var post = postRepository.findById(postId).get();
         comment.setPost(post);
         var saveComment = commentRepository.save(comment);
         return CommentMapper.map(saveComment);
+    }
+
+    @Override
+    public CommentDto update(CommentUpdateForm form, Long id) {
+        var comment = commentRepository.findById(id).get();
+        CommentMapper.map(form, comment);
+        var saveComment = commentRepository.save(comment);
+        return CommentMapper.map(saveComment);
+    }
+
+    @Override
+    public void deleteCmtById(Long id) {
+        commentRepository.deleteById(id);
     }
 }

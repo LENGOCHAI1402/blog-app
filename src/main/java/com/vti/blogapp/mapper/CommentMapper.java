@@ -3,6 +3,8 @@ package com.vti.blogapp.mapper;
 import com.vti.blogapp.dto.CommentDto;
 import com.vti.blogapp.entity.Comment;
 import com.vti.blogapp.form.CommentCreateForm;
+import com.vti.blogapp.form.CommentUpdateForm;
+import org.springframework.validation.annotation.Validated;
 
 public class CommentMapper {
     public static Comment map(CommentCreateForm form)  {
@@ -12,6 +14,13 @@ public class CommentMapper {
         comment.setBody(form.getBody());
         return comment;
     }
+
+    public static void map(CommentUpdateForm form, Comment comment) {
+        comment.setName(form.getName());
+        comment.setEmail(form.getEmail());
+        comment.setBody(form.getBody());
+    }
+
 
     public static CommentDto map(Comment comment) {
         var dto = new CommentDto();
