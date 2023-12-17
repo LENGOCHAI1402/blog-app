@@ -1,9 +1,9 @@
-INSERT INTO post (id, title          , description             , content                                  , created_at       , updated_at       )
-VALUES           (1 , "Database"     , "Learn MySQL"           , "Learn MySQL with mentor Khoa"           , CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-                 (2 , "Java Core"    , "Learn Java Core"       , "Learn Java Core with mentor Khoa"       , CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-                 (3 , "Front Basic"  , "Learn HTML, CSS, JS"   , "Learn HTML, CSS, JS with mentor Khoa"   , CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-                 (4 , "Java Advanced", "Learn Spring Framework", "Learn Spring Framework with mentor Khoa", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-                 (5 , "React JS"     , "Learn React JS"        , "Learn React JS with mentor Khoa"        , CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO post (id, title          , description             , content                                  , created_at           , updated_at       )
+VALUES           (1 , "Database"     , "Learn MySQL"           , "Learn MySQL with mentor Khoa"           , '2022-12-12 20:19:29', CURRENT_TIMESTAMP),
+                 (2 , "Java Core"    , "Learn Java Core"       , "Learn Java Core with mentor Khoa"       , CURRENT_TIMESTAMP    , CURRENT_TIMESTAMP),
+                 (3 , "Front Basic"  , "Learn HTML, CSS, JS"   , "Learn HTML, CSS, JS with mentor Khoa"   , CURRENT_TIMESTAMP    , CURRENT_TIMESTAMP),
+                 (4 , "Java Advanced", "Learn Spring Framework", "Learn Spring Framework with mentor Khoa", CURRENT_TIMESTAMP    , CURRENT_TIMESTAMP),
+                 (5 , "React JS"     , "Learn React JS"        , "Learn React JS with mentor Khoa"        , CURRENT_TIMESTAMP    , CURRENT_TIMESTAMP);
 
 INSERT INTO comment (id, name              , email               , body                  , created_at       , updated_at       , post_id)
 VALUES              (1 , "Nguyễn Văn Khoa" , "khoa.nv@gmail.com" , "Bài viết rất bổ ích.", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1      ),

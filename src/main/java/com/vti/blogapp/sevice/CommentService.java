@@ -2,12 +2,13 @@ package com.vti.blogapp.sevice;
 
 import com.vti.blogapp.dto.CommentDto;
 import com.vti.blogapp.form.CommentCreateForm;
+import com.vti.blogapp.form.CommentFilterForm;
 import com.vti.blogapp.form.CommentUpdateForm;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface CommentService {
-    Page<CommentDto> findAll(Pageable pageable);
+    Page<CommentDto> findAll(CommentFilterForm form, Pageable pageable);
 
     Page<CommentDto> findByPostId(Long posdId, Pageable pageable);
 
