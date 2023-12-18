@@ -6,11 +6,14 @@ import com.vti.blogapp.form.CommentCreateForm;
 import com.vti.blogapp.form.CommentFilterForm;
 import com.vti.blogapp.form.CommentUpdateForm;
 import com.vti.blogapp.sevice.CommentService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+@Validated
 @RestController
 @AllArgsConstructor
 public class CommentController {
@@ -28,14 +31,14 @@ public class CommentController {
 
     @PostMapping("/api/v1/posts/{postId}/comments")
     public CommentDto create(
-            @RequestBody CommentCreateForm form,
+            @RequestBody @Valid CommentCreateForm form,
             @PathVariable("postId") Long postId
     ) {
         return commentService.create(form, postId);
     }
 
     @PutMapping("/api/v1/comments/{id}")
-    public CommentDto update(@RequestBody CommentUpdateForm form, @PathVariable("id") Long id) {
+    public CommentDto update(@RequestBody @Valid CommentUpdateForm form, @PathVariable("id") Long id) {
         return commentService.update(form, id);
     }
 
