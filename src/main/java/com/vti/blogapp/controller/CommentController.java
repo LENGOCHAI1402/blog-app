@@ -1,6 +1,7 @@
 package com.vti.blogapp.controller;
 
 import com.vti.blogapp.Validation.CommentIdExists;
+import com.vti.blogapp.Validation.PostIdExists;
 import com.vti.blogapp.dto.CommentDto;
 import com.vti.blogapp.entity.Comment;
 import com.vti.blogapp.form.CommentCreateForm;
@@ -26,7 +27,7 @@ public class CommentController {
     }
 
     @GetMapping("/api/v1/posts/{postId}/comments")
-    Page<CommentDto> findAllPostId(@PathVariable("postId") Long postId, Pageable pageable) {
+    Page<CommentDto> findAllPostId(@PathVariable("postId") @PostIdExists Long postId, Pageable pageable) {
         return commentService.findByPostId(postId, pageable);
     }
 
