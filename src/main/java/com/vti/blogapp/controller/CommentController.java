@@ -1,5 +1,6 @@
 package com.vti.blogapp.controller;
 
+import com.vti.blogapp.Validation.CommentIdExists;
 import com.vti.blogapp.dto.CommentDto;
 import com.vti.blogapp.entity.Comment;
 import com.vti.blogapp.form.CommentCreateForm;
@@ -38,12 +39,12 @@ public class CommentController {
     }
 
     @PutMapping("/api/v1/comments/{id}")
-    public CommentDto update(@RequestBody @Valid CommentUpdateForm form, @PathVariable("id") Long id) {
+    public CommentDto update(@RequestBody @Valid @CommentIdExists CommentUpdateForm form, @PathVariable("id") Long id) {
         return commentService.update(form, id);
     }
 
     @DeleteMapping("/api/v1/comments/{id}")
-    public void deleteCmtById(@PathVariable("id") Long id) {
+    public void deleteCmtById(@PathVariable("id") @CommentIdExists Long id) {
         commentService.deleteCmtById(id);
     }
 
