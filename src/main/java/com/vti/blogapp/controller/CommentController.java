@@ -39,6 +39,11 @@ public class CommentController {
         return commentService.create(form, postId);
     }
 
+    @GetMapping("/api/v1/comments/{id}")
+    public CommentDto findById(@PathVariable("id") @CommentIdExists Long id){
+        return commentService.findById(id);
+    }
+
     @PutMapping("/api/v1/comments/{id}")
     public CommentDto update(@RequestBody @Valid @CommentIdExists CommentUpdateForm form, @PathVariable("id") Long id) {
         return commentService.update(form, id);
