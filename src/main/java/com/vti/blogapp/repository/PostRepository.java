@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public interface PostRepository extends JpaRepository<Post, Long>,
         JpaSpecificationExecutor<Post> {
-    @Query(value = "SELECT * FROM Post WHERE title = :title", nativeQuery = true)
-    Page<Post> existsByTitle (@RequestParam(("title")) String title, Pageable pageable);
+
+    boolean existsByTitle (String title);
 
 }
