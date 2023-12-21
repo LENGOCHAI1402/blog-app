@@ -30,6 +30,7 @@ public class User {
 
     @Column(name = "password", length = 72, nullable = false)
     private String password;
+
     @Column(name = "created_at", nullable = false, updatable = false)
     @CreationTimestamp
     private LocalDateTime createAt;
@@ -37,6 +38,4 @@ public class User {
     @Column(name = "updated_at", nullable = false)
     @UpdateTimestamp
     private LocalDateTime updateAt;
-
-
 }
