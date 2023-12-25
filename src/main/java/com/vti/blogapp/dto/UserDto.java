@@ -1,5 +1,6 @@
 package com.vti.blogapp.dto;
 
+import com.vti.blogapp.entity.Role;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
@@ -9,6 +10,7 @@ import org.hibernate.validator.constraints.Length;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Setter
 @Getter
