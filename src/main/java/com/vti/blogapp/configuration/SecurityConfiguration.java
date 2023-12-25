@@ -35,7 +35,8 @@ public class SecurityConfiguration {
                 .sessionManagement(customizer->customizer
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .exceptionHandling(customizer->customizer
-                        .authenticationEntryPoint(errorHandler))
+                        .accessDeniedHandler(errorHandler) // 403
+                        .authenticationEntryPoint(errorHandler)) // 401
                 .httpBasic(AbstractHttpConfigurer::disable)
                 .with(new JwtLoginConfigurer(), Customizer.withDefaults());
         return http.build();
